@@ -1,0 +1,77 @@
+body {
+  background: linear-gradient(-180deg,#6f18c7  0%,black  100%);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: left;
+  justify-content: center;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background-color: none;
+    padding: 10px;
+}
+
+.grid-container > div {
+  text-align: left;
+  padding: 10px 0;
+  border: black 0;
+}
+/* CSS code for all of the lists that were used. This includes the hover effect as well. */
+ol {
+  list-style-type: none;
+  margin: 20;
+  padding: 0;
+  width: 200px;
+  background-color:none;
+  text-align: left; 
+  color: rgb(221, 211, 211); 
+  text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+}
+
+
+ li a {
+  display: block;
+  color: rgb(116, 24, 24);
+  padding: 8px 16px;
+  text-decoration: none;
+}
+
+ol li a:hover {
+    color: white;
+    text-decoration:none;
+    text-align: left; 
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+}
+/* CSS code for the table. Need to revisit for color scheme and layout. */
+table{
+    border-color: none;
+    border-width: 0px;
+    border-style: solid;
+}
+
+th{
+    border-color: black;
+    border-width: 1px;
+    border-style: solid;
+    background-color: rgb(124, 21, 21);
+    color: white;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+}
+
+tr
+{
+    border-color: none;
+    border-width: 1px;
+    border-style: solid;
+}
+
+td{
+
+    background-color: rgb(124, 21, 21);
+    color: white;
+    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+}
