@@ -1,11 +1,39 @@
 body {
-  background: linear-gradient(-180deg,#6f18c7  0%,black  100%);
+  background: linear-gradient(-180deg,#c7d2f5  0%,rgb(117, 117, 216)  100%);
   margin: 0;
   padding: 0;
   display: flex;
   flex-direction: column;
   align-items: left;
   justify-content: center;
+}
+
+nav {
+  background-color: rgb(100, 90, 156);
+  padding: 10px;
+  text-align: center;
+}
+
+nav ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav li {
+  margin: 0 15px;
+}
+
+nav a {
+  color: rgb(0, 0, 0);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: rgb(129, 196, 235);
 }
 
 .grid-container{
@@ -35,16 +63,15 @@ ol {
 
  li a {
   display: block;
-  color: rgb(116, 24, 24);
+  color: rgb(3, 10, 17);
   padding: 8px 16px;
   text-decoration: none;
 }
 
-ol li a:hover {
-    color: white;
+li a:hover {
+    color: rgb(27, 79, 175);
     text-decoration:none;
     text-align: left; 
-    text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
 }
 /* CSS code for the table. Need to revisit for color scheme and layout. */
 table{
@@ -57,7 +84,7 @@ th{
     border-color: black;
     border-width: 1px;
     border-style: solid;
-    background-color: rgb(124, 21, 21);
+    background-color: rgb(21, 31, 124);
     color: white;
     text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
 }
@@ -71,7 +98,24 @@ tr
 
 td{
 
-    background-color: rgb(124, 21, 21);
+    background-color: rgb(60, 86, 204);
     color: white;
     text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+}
+/* Mobile devices */
+@media (max-width: 768px) {
+  nav ul {
+    flex-direction: column;
+  }
+  
+  nav li {
+    min-width: 100%;
+  }
+}
+
+/* Tablets and larger */
+@media (min-width: 769px) {
+  nav ul {
+    display: flex;
+  }
 }

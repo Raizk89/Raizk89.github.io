@@ -1,0 +1,480 @@
+<html>
+  <head>
+    <title>Kingdom Hearts Quiz</title>
+    <link rel="stylesheet" href="Styling.css">
+    <style>
+      .quiz-container {
+        max-width: 800px;
+        margin: 30px auto;
+        padding: 20px;
+        background-color: rgba(255, 255, 255, 0.9);
+        border-radius: 8px;
+        box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      }
+
+      .quiz-container h1 {
+        text-align: center;
+        color: rgb(124, 21, 21);
+        margin-bottom: 30px;
+      }
+
+      .question {
+        margin-bottom: 25px;
+        padding: 15px;
+        background-color: rgba(199, 210, 245, 0.5);
+        border-left: 4px solid rgb(124, 21, 21);
+        border-radius: 4px;
+      }
+
+      .question label {
+        display: block;
+        margin-bottom: 10px;
+        font-weight: bold;
+        color: rgb(0, 0, 0);
+      }
+
+      .question input[type="radio"],
+      .question input[type="checkbox"],
+      .question input[type="text"],
+      .question textarea,
+      .question select {
+        margin-bottom: 8px;
+        margin-right: 8px;
+      }
+
+      .question input[type="text"],
+      .question textarea,
+      .question select {
+        width: 100%;
+        padding: 8px;
+        border: 1px solid rgb(124, 21, 21);
+        border-radius: 4px;
+        font-family: Arial, sans-serif;
+        box-sizing: border-box;
+      }
+
+      .question textarea {
+        resize: vertical;
+        min-height: 100px;
+      }
+
+      .option {
+        margin-left: 20px;
+        margin-bottom: 8px;
+        display: flex;
+        align-items: center;
+      }
+
+      .option input[type="radio"],
+      .option input[type="checkbox"] {
+        margin-right: 10px;
+        margin-bottom: 0;
+      }
+
+      .option label {
+        display: inline;
+        margin-bottom: 0;
+        font-weight: normal;
+      }
+
+      .submit-btn {
+        display: block;
+        margin: 30px auto;
+        padding: 12px 30px;
+        background-color: rgb(124, 21, 21);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 16px;
+        font-weight: bold;
+        cursor: pointer;
+        text-shadow: -1px -1px 0 black, 1px -1px 0 black, -1px 1px 0 black, 1px 1px 0 black;
+      }
+
+      .submit-btn:hover {
+        background-color: rgb(150, 30, 30);
+        transform: scale(1.05);
+        transition: all 0.3s ease;
+      }
+
+      .reset-btn {
+        display: block;
+        margin: 10px auto;
+        padding: 10px 20px;
+        background-color: rgb(100, 100, 100);
+        color: white;
+        border: none;
+        border-radius: 4px;
+        font-size: 14px;
+        cursor: pointer;
+      }
+
+      .reset-btn:hover {
+        background-color: rgb(120, 120, 120);
+      }
+
+      .results-container {
+        display: none;
+        margin-top: 30px;
+        padding: 20px;
+        background-color: rgba(199, 210, 245, 0.7);
+        border-radius: 8px;
+        border: 2px solid rgb(124, 21, 21);
+      }
+
+      .results-container.show {
+        display: block;
+      }
+
+      .score-display {
+        text-align: center;
+        font-size: 24px;
+        font-weight: bold;
+        color: rgb(124, 21, 21);
+        margin-bottom: 20px;
+        padding: 15px;
+        background-color: white;
+        border-radius: 8px;
+      }
+
+      .result-item {
+        margin-bottom: 20px;
+        padding: 15px;
+        background-color: white;
+        border-radius: 4px;
+        border-left: 4px solid #999;
+      }
+
+      .result-item.correct {
+        border-left-color: #28a745;
+        background-color: #f0f8f0;
+      }
+
+      .result-item.incorrect {
+        border-left-color: #dc3545;
+        background-color: #f8f0f0;
+      }
+
+      .result-question {
+        font-weight: bold;
+        margin-bottom: 10px;
+        color: rgb(0, 0, 0);
+      }
+
+      .result-answer {
+        margin: 5px 0;
+        font-size: 14px;
+      }
+
+      .your-answer {
+        color: #dc3545;
+      }
+
+      .correct-answer {
+        color: #28a745;
+      }
+
+      .result-status {
+        font-weight: bold;
+        font-size: 16px;
+        margin-top: 10px;
+      }
+
+      .result-status.correct {
+        color: #28a745;
+      }
+
+      .result-status.incorrect {
+        color: #dc3545;
+      }
+    </style>
+  </head>
+
+  <body>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="Introduction.html">Introduction</a></li>
+        <li><a href="Characters.html">Characters</a></li>
+        <li><a href="Story.html">Story</a></li>
+        <li><a href="KeyTerms.html">Key Terms</a></li>
+        <li><a href="Quiz.html">Quiz</a></li>
+        <li><a href="About.html">About</a></li>
+        
+      </ul>
+    </nav>
+<sr
+    <div class="quiz-container">
+      <h1>Kingdom Hearts Quiz</h1>
+      
+      <form id="quizForm">
+        <!-- Question 1: Multiple Choice -->
+        <div class="question">
+          <label>1. In what year was the first Kingdom Hearts game released?</label>
+          <div class="option">
+            <input type="radio" id="q1a" name="question1" value="2000">
+            <label for="q1a">2000</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q1b" name="question1" value="2002">
+            <label for="q1b">2002</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q1c" name="question1" value="2004">
+            <label for="q1c">2004</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q1d" name="question1" value="2005">
+            <label for="q1d">2005</label>
+          </div>
+        </div>
+
+        <!-- Question 2: Multiple Choice -->
+        <div class="question">
+          <label>2. What is the name of the main protagonist?</label>
+          <div class="option">
+            <input type="radio" id="q2a" name="question2" value="Sora">
+            <label for="q2a">Sora</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q2b" name="question2" value="Riku">
+            <label for="q2b">Riku</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q2c" name="question2" value="Kairi">
+            <label for="q2c">Kairi</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q2d" name="question2" value="Xemnas">
+            <label for="q2d">Xemnas</label>
+          </div>
+        </div>
+
+        <!-- Question 3: Multiple Choice -->
+        <div class="question">
+          <label>3. What weapon does the main character wield?</label>
+          <div class="option">
+            <input type="radio" id="q3a" name="question3" value="Sword">
+            <label for="q3a">Sword</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q3b" name="question3" value="Keyblade">
+            <label for="q3b">Keyblade</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q3c" name="question3" value="Shield">
+            <label for="q3c">Shield</label>
+          </div>
+          <div class="option">
+            <input type="radio" id="q3d" name="question3" value="Staff">
+            <label for="q3d">Staff</label>
+          </div>
+        </div>
+
+        <!-- Question 4: Multiple Select -->
+        <div class="question">
+          <label>4. Which of the following are Disney characters that appear in Kingdom Hearts? (Select all that apply)</label>
+          <div class="option">
+            <input type="checkbox" id="q4a" name="question4" value="Mickey">
+            <label for="q4a">Mickey Mouse</label>
+          </div>
+          <div class="option">
+            <input type="checkbox" id="q4b" name="question4" value="Simba">
+            <label for="q4b">Simba</label>
+          </div>
+          <div class="option">
+            <input type="checkbox" id="q4c" name="question4" value="Pikachu">
+            <label for="q4c">Pikachu</label>
+          </div>
+          <div class="option">
+            <input type="checkbox" id="q4d" name="question4" value="Aladdin">
+            <label for="q4d">Aladdin</label>
+          </div>
+        </div>
+
+        <!-- Question 5: Dropdown -->
+        <div class="question">
+          <label for="question5">5. Who is the main villain in the Kingdom Hearts series?</label>
+          <select id="question5" name="question5">
+            <option value="">-- Select an answer --</option>
+            <option value="Maleficent">Maleficent</option>
+            <option value="Ansem">Ansem</option>
+            <option value="Xemnas">Xemnas</option>
+            <option value="Master Xehanort">Master Xehanort</option>
+          </select>
+        </div>
+
+        <!-- Question 6: Text Input -->
+        <div class="question">
+          <label for="question6">6. What is the name of the organization that serves as a major antagonist group? (Hint: starts with "Organization")</label>
+          <input type="text" id="question6" name="question6" placeholder="Enter your answer...">
+        </div>
+
+        <!-- Question 7: Short Answer -->
+        <div class="question">
+          <label for="question7">7. Briefly describe what Sora is searching for throughout his adventures:</label>
+          <textarea id="question7" name="question7" placeholder="Write your answer here..."></textarea>
+        </div>
+
+        <button type="submit" class="submit-btn">Submit Quiz</button>
+        <button type="reset" class="reset-btn">Clear Answers</button>
+      </form>
+
+      <div id="resultsContainer" class="results-container">
+        <div class="score-display" id="scoreDisplay"></div>
+        <div id="resultsList"></div>
+        <button type="button" class="reset-btn" onclick="location.reload()">Retake Quiz</button>
+      </div>
+    </div>
+
+    <script>
+      // Define correct answers
+      const correctAnswers = {
+        question1: '2002',
+        question2: 'Sora',
+        question3: 'Keyblade',
+        question4: ['Mickey', 'Simba', 'Aladdin'], // Multiple correct answers
+        question5: 'Master Xehanort',
+        question6: 'Organization XIII',
+        question7: ['friends', 'riku', 'kairi'] // Partial matching for short answer
+      };
+
+      document.getElementById('quizForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        
+        const formData = new FormData(this);
+        let score = 0;
+        let totalQuestions = 7;
+        let results = [];
+
+        // Question 1: Multiple choice
+        const q1Answer = formData.get('question1');
+        const q1Correct = q1Answer === correctAnswers.question1;
+        if (q1Correct) score++;
+        results.push({
+          number: 1,
+          question: '1. In what year was the first Kingdom Hearts game released?',
+          userAnswer: q1Answer || 'Not answered',
+          correctAnswer: correctAnswers.question1,
+          isCorrect: q1Correct,
+          type: 'single'
+        });
+
+        // Question 2: Multiple choice
+        const q2Answer = formData.get('question2');
+        const q2Correct = q2Answer === correctAnswers.question2;
+        if (q2Correct) score++;
+        results.push({
+          number: 2,
+          question: '2. What is the name of the main protagonist?',
+          userAnswer: q2Answer || 'Not answered',
+          correctAnswer: correctAnswers.question2,
+          isCorrect: q2Correct,
+          type: 'single'
+        });
+
+        // Question 3: Multiple choice
+        const q3Answer = formData.get('question3');
+        const q3Correct = q3Answer === correctAnswers.question3;
+        if (q3Correct) score++;
+        results.push({
+          number: 3,
+          question: '3. What weapon does the main character wield?',
+          userAnswer: q3Answer || 'Not answered',
+          correctAnswer: correctAnswers.question3,
+          isCorrect: q3Correct,
+          type: 'single'
+        });
+
+        // Question 4: Multiple select (checkboxes)
+        const q4Answers = formData.getAll('question4');
+        const q4Correct = q4Answers.length === correctAnswers.question4.length &&
+                          q4Answers.every(ans => correctAnswers.question4.includes(ans)) &&
+                          correctAnswers.question4.every(ans => q4Answers.includes(ans));
+        if (q4Correct) score++;
+        results.push({
+          number: 4,
+          question: '4. Which of the following are Disney characters that appear in Kingdom Hearts? (Select all that apply)',
+          userAnswer: q4Answers.length > 0 ? q4Answers.join(', ') : 'Not answered',
+          correctAnswer: correctAnswers.question4.join(', '),
+          isCorrect: q4Correct,
+          type: 'multiple'
+        });
+
+        // Question 5: Dropdown
+        const q5Answer = formData.get('question5');
+        const q5Correct = q5Answer === correctAnswers.question5;
+        if (q5Correct) score++;
+        results.push({
+          number: 5,
+          question: '5. Who is the main villain in the Kingdom Hearts series?',
+          userAnswer: q5Answer || 'Not answered',
+          correctAnswer: correctAnswers.question5,
+          isCorrect: q5Correct,
+          type: 'single'
+        });
+
+        // Question 6: Text input (case-insensitive)
+        const q6Answer = formData.get('question6').toLowerCase().trim();
+        const q6Correct = q6Answer === correctAnswers.question6.toLowerCase();
+        if (q6Correct) score++;
+        results.push({
+          number: 6,
+          question: '6. What is the name of the organization that serves as a major antagonist group?',
+          userAnswer: formData.get('question6') || 'Not answered',
+          correctAnswer: correctAnswers.question6,
+          isCorrect: q6Correct,
+          type: 'single'
+        });
+
+        // Question 7: Short answer (check if contains key words)
+        const q7Answer = formData.get('question7').toLowerCase();
+        const q7Correct = correctAnswers.question7.some(word => q7Answer.includes(word));
+        if (q7Correct) score++;
+        results.push({
+          number: 7,
+          question: '7. Briefly describe what Sora is searching for throughout his adventures:',
+          userAnswer: formData.get('question7') || 'Not answered',
+          correctAnswer: 'Looking for his friends (Riku and Kairi)',
+          isCorrect: q7Correct,
+          type: 'short'
+        });
+
+        // Display results
+        displayResults(score, totalQuestions, results);
+      });
+
+      function displayResults(score, totalQuestions, results) {
+        const percentage = Math.round((score / totalQuestions) * 100);
+        
+        // Hide form and show results
+        document.getElementById('quizForm').style.display = 'none';
+        const resultsContainer = document.getElementById('resultsContainer');
+        resultsContainer.classList.add('show');
+
+        // Display score
+        const scoreDisplay = document.getElementById('scoreDisplay');
+        scoreDisplay.innerHTML = `<div>Your Score: ${score} out of ${totalQuestions} (${percentage}%)</div>`;
+
+        // Display individual results
+        const resultsList = document.getElementById('resultsList');
+        resultsList.innerHTML = '<h2 style="text-align: center; color: rgb(124, 21, 21);">Answer Key</h2>';
+
+        results.forEach(result => {
+          const resultDiv = document.createElement('div');
+          resultDiv.className = `result-item ${result.isCorrect ? 'correct' : 'incorrect'}`;
+          
+          resultDiv.innerHTML = `
+            <div class="result-question">Q${result.number}: ${result.question}</div>
+            <div class="result-answer"><span class="your-answer">Your Answer:</span> ${result.userAnswer}</div>
+            <div class="result-answer"><span class="correct-answer">Correct Answer:</span> ${result.correctAnswer}</div>
+            <div class="result-status ${result.isCorrect ? 'correct' : 'incorrect'}">
+              ${result.isCorrect ? '✓ Correct' : '✗ Incorrect'}
+            </div>
+          `;
+          resultsList.appendChild(resultDiv);
+        });
+      }
+    </script>
+  </body>
+</html>
